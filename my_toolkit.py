@@ -57,6 +57,8 @@ if __name__ == "__main__":
     # Test each function
     test_scores = [85, 92, 78, 95, 88, 70, 93]
     
+    honors = []
+    
     print(f"Average: {calculate_average(test_scores):.2f}")
     print(f"Max/Min: {find_max_and_min(test_scores)}")
     print(f"Count of 85: {count_occurrences(test_scores, 85)}")
@@ -64,3 +66,6 @@ if __name__ == "__main__":
     print(f"'hello' palindrome: {is_palindrome('hello')}")
     print()
     print(create_report("Class Scores", test_scores))
+    print(create_report("Honors Scores", honors))
+    
+    
