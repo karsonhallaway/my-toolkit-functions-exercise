@@ -33,9 +33,9 @@ def count_occurrences(items, target):
     
 def is_palindrome(text):
     """Takes a string, returns True if it reads the same forward and backward (case-insensitive, ignoring spaces.)"""
-    if not text:
-        return False
     cleaned_text = text.replace(" ", "").lower()
+    if not cleaned_text:
+        return False
     return cleaned_text == cleaned_text[::-1]
     
 def create_report(title, scores):
@@ -67,5 +67,22 @@ if __name__ == "__main__":
     print()
     print(create_report("Class Scores", test_scores))
     print(create_report("Honors Scores", honors))
+
+    # === Edge Case Tests ===
+    print("\n--- Empty list ---")
+    print(f"calculate_average([]): {calculate_average([])}  (expected 0)")
+    print(f"find_max_and_min([]): {find_max_and_min([])}  (expected (0, 0))")
+
+    print("\n--- count_occurrences with repeats ---")
+    print(f"Count of 3 in [3, 1, 3, 2, 3]: {count_occurrences([3, 1, 3, 2, 3], 3)}  (expected 3)")
+    print(f"Count of 'a' in ['a', 'b', 'a']: {count_occurrences(['a', 'b', 'a'], 'a')}  (expected 2)")
+    print(f"Count of 9 in [1, 2, 3]: {count_occurrences([1, 2, 3], 9)}  (expected 0)")
+
+    print("\n--- is_palindrome edge cases ---")
+    print(f"'race car': {is_palindrome('race car')}  (expected True)")
+    print(f"'A man a plan a canal Panama': {is_palindrome('A man a plan a canal Panama')}  (expected True)")
+    print(f"'a': {is_palindrome('a')}  (expected True)")
+    print(f"'RaceCar': {is_palindrome('RaceCar')}  (expected True)")
+    print(f"'Hello': {is_palindrome('Hello')}  (expected False)")
     
     
